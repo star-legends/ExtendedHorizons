@@ -1,10 +1,12 @@
 package me.mapacheee.extendedhorizons.fakechunks.backend;
 
+import com.thewinterframework.service.annotation.expose.Expose;
 import io.netty.buffer.ByteBuf;
 import org.bukkit.World;
 
 import java.util.concurrent.CompletableFuture;
 
+@Expose
 public interface ChunkBackend {
 
   @FunctionalInterface

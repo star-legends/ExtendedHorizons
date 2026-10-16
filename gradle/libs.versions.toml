@@ -19,6 +19,7 @@ paperweight = "2.0.0-beta.21"
 [libraries]
 # Core
 core = { module = "net.starlegends:core-api", version.ref = "core" }
+paper-api = { module = "io.papermc.paper:paper-api", version.ref = "paper-dev-bundle" }
 
 # Hooks
 placeholderapi = { module = "me.clip:placeholderapi", version.ref = "placeholderapi" }

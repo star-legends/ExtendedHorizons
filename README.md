@@ -56,6 +56,10 @@ The artifact will be generated in `build/libs/ExtendedHorizons-{version}.jar` re
 
 ExtendedHorizons is built entirely with WinterFramework (Guice), so you can inject its services directly or resolve them statically.
 
+Winter generates `ExtendedHorizonsPluginAPI` from the `api` module's `ChunkBackend` interface.
+The API is included in the plugin JAR and can be accessed through
+`ExtendedHorizonsPluginAPI.Provider.getInstance().getChunkBackend()` after ExtendedHorizons is enabled.
+
 Add this to your `plugin.yml` or `paper-plugin.yml`:
 ```yaml
 depend: [ ExtendedHorizons ]

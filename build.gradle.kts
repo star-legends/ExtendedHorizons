@@ -16,7 +16,8 @@ java {
     }
 }
 
-repositories {
+allprojects {
+  repositories {
     mavenCentral()
     mavenLocal()
     listOf("releases", "snapshots").forEach { repository ->
@@ -39,9 +40,12 @@ repositories {
     maven("https://repo.codemc.org/repository/maven-public/")
     maven("https://repo.codemc.io/repository/maven-snapshots/")
     maven("https://maven.enginehub.org/repo/")
+  }
 }
 
 dependencies {
+    api(project(":ExtendedHorizons-api"))
+
     // StarLegendsCore provides Winter, its processors, and Caffeine.
     compileOnlyApi(libs.core)
     annotationProcessor(libs.core)
