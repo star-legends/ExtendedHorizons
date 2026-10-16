@@ -1,10 +1,9 @@
 [versions]
 # Core & Platform
-mapacheeelib = "1.0.2"
+core = "1.0.1-SNAPSHOT.8"
 paper-dev-bundle = "26.2.build.+"
 
-# Hooks & Metrics
-faststats = "0.29.0"
+# Hooks
 placeholderapi = "2.12.2"
 intellectualsites-bom = "1.56"
 
@@ -19,10 +18,9 @@ paperweight = "2.0.0-beta.21"
 
 [libraries]
 # Core
-mapacheeelib = { module = "me.mapacheee:MapacheeeLib", version.ref = "mapacheeelib" }
+core = { module = "net.starlegends:core-api", version.ref = "core" }
 
-# Hooks & Metrics
-faststats-bukkit = { module = "dev.faststats.metrics:bukkit", version.ref = "faststats" }
+# Hooks
 placeholderapi = { module = "me.clip:placeholderapi", version.ref = "placeholderapi" }
 intellectualsites-bom = { module = "com.intellectualsites.bom:bom-newest", version.ref = "intellectualsites-bom" }
 fawe-core = { module = "com.fastasyncworldedit:FastAsyncWorldEdit-Core" }

@@ -1,10 +1,10 @@
 package me.mapacheee.extendedhorizons.fakechunks.planner;
 
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
 import com.thewinterframework.service.annotation.Service;
 import it.unimi.dsi.fastutil.ints.IntArrays;
 import me.mapacheee.extendedhorizons.fakechunks.util.ChunkKeyCodec;
-import me.mapacheee.lib.caffeine.cache.Cache;
-import me.mapacheee.lib.caffeine.cache.Caffeine;
 
 import java.util.Comparator;
 import java.util.List;

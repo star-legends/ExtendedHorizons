@@ -1,5 +1,8 @@
 package me.mapacheee.extendedhorizons.fakechunks.cache;
 
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
+import com.github.benmanes.caffeine.cache.Scheduler;
 import com.google.inject.Inject;
 import com.thewinterframework.configurate.Container;
 import com.thewinterframework.service.annotation.Service;
@@ -7,9 +10,6 @@ import com.thewinterframework.service.annotation.lifecycle.OnDisable;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.PooledByteBufAllocator;
 import me.mapacheee.extendedhorizons.config.EhConfig;
-import me.mapacheee.lib.caffeine.cache.Cache;
-import me.mapacheee.lib.caffeine.cache.Caffeine;
-import me.mapacheee.lib.caffeine.cache.Scheduler;
 import net.minecraft.network.VarInt;
 
 import java.time.Duration;
@@ -224,7 +224,7 @@ public final class CompressedPayloadCacheService {
         .scheduler(Scheduler.systemScheduler())
         .executor(Runnable::run)
         .recordStats()
-        .removalListener((ContentKey key, Entry entry, me.mapacheee.lib.caffeine.cache.RemovalCause cause) -> entry.close())
+        .removalListener((ContentKey key, Entry entry, com.github.benmanes.caffeine.cache.RemovalCause cause) -> entry.close())
         .build();
       long nativeMaxBytes = Math.max(1L, maxBytes / 4L);
       int nativeMinimumWeight = (int) Math.max(1L,
@@ -236,7 +236,7 @@ public final class CompressedPayloadCacheService {
         .scheduler(Scheduler.systemScheduler())
         .executor(Runnable::run)
         .recordStats()
-        .removalListener((ContentKey key, CachedPayload payload, me.mapacheee.lib.caffeine.cache.RemovalCause cause) ->
+        .removalListener((ContentKey key, CachedPayload payload, com.github.benmanes.caffeine.cache.RemovalCause cause) ->
           payload.close())
         .build();
     }

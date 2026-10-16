@@ -1,9 +1,9 @@
 package me.mapacheee.extendedhorizons.fakechunks.disk;
 
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
 import io.netty.buffer.ByteBuf;
 import me.mapacheee.extendedhorizons.fakechunks.antixray.AntiXrayProcessor;
-import me.mapacheee.lib.caffeine.cache.Cache;
-import me.mapacheee.lib.caffeine.cache.Caffeine;
 import net.minecraft.server.level.ServerLevel;
 import org.bukkit.World;
 import org.bukkit.craftbukkit.CraftWorld;

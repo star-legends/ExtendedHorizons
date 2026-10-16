@@ -19,9 +19,22 @@ java {
 repositories {
     mavenCentral()
     mavenLocal()
+    listOf("releases", "snapshots").forEach { repository ->
+        maven("https://repo.darkpine-9qz.org/$repository/") {
+            credentials {
+                username = providers.gradleProperty("starlegends.repo.username").orNull
+                password = providers.gradleProperty("starlegends.repo.password").orNull
+            }
+            content {
+                includeGroup("net.starlegends")
+                includeGroup("com.thewinterframework")
+                includeGroup("xyz.xenondevs.invui")
+            }
+        }
+    }
     maven("https://repo.papermc.io/repository/maven-public/")
+    maven("https://repo.fancyinnovations.com/releases")
     maven("https://oss.sonatype.org/content/groups/public/")
-    maven("https://repo.faststats.dev/releases")
     maven("https://repo.extendedclip.com/content/repositories/placeholderapi/")
     maven("https://repo.codemc.org/repository/maven-public/")
     maven("https://repo.codemc.io/repository/maven-snapshots/")
@@ -29,13 +42,12 @@ repositories {
 }
 
 dependencies {
-    // MapacheeeLib & Paper
-    compileOnlyApi(libs.mapacheeelib)
-    annotationProcessor(libs.mapacheeelib)
+    // StarLegendsCore provides Winter, its processors, and Caffeine.
+    compileOnlyApi(libs.core)
+    annotationProcessor(libs.core)
     paperweight.paperDevBundle(libs.versions.paper.dev.bundle.get())
 
-    // Hooks & Metrics
-    compileOnly(libs.faststats.bukkit)
+    // Hooks
     compileOnly(libs.placeholderapi)
     compileOnly(platform(libs.intellectualsites.bom))
     compileOnly(libs.fawe.core)
@@ -47,7 +59,7 @@ dependencies {
     testImplementation(platform(libs.junit.bom))
     testImplementation(libs.junit.jupiter)
     testRuntimeOnly(libs.junit.platform.launcher)
-    testRuntimeOnly(libs.mapacheeelib)
+    testRuntimeOnly(libs.core)
     testImplementation(platform(libs.intellectualsites.bom))
     testImplementation(libs.fawe.core) {
         exclude(group = "org.yaml", module = "snakeyaml")
@@ -71,8 +83,6 @@ tasks {
         }
     }
     shadowJar {
-        relocate("com.github.benmanes.caffeine", "me.mapacheee.lib.caffeine")
-        relocate("dev.faststats", "me.mapacheee.lib.faststats")
         manifest {
             attributes(
                 "Implementation-Title" to project.name,

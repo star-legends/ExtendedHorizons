@@ -28,14 +28,24 @@ EH logs that case explicitly and does not change FAWE's settings.
 ---
 ## Dependencies
 
-- [MapacheeeLib](https://github.com/Mapacheee/MapacheeeLib)
+- StarLegendsCore (required; provides Winter Framework and Caffeine)
 - [PlaceholderAPI](https://github.com/PlaceholderAPI/PlaceholderAPI) *(optional hook)*
 - [FastAsyncWorldEdit](https://github.com/IntellectualSites/FastAsyncWorldEdit/releases) *(optional hook)*
 
 ---
 ## How to build
 
-Build this project with this command: 
+Configure access to the StarLegends Maven repositories in your user-level `~/.gradle/gradle.properties`:
+
+```properties
+starlegends.repo.username=YOUR_USERNAME
+starlegends.repo.password=YOUR_PASSWORD
+```
+
+GitHub Actions uses the `STARLEGENDS_REPO_USERNAME` and `STARLEGENDS_REPO_PASSWORD` repository secrets.
+Install StarLegendsCore separately on the server.
+
+Build this project with this command:
 ```cmd
 ./gradlew shadowJar
 ```
@@ -86,11 +96,6 @@ sessionRegistry = ExtendedHorizonsPlugin.getService(SessionRegistry.class);
   ```
 - **Read configuration:** Access world rules, safe factors, and far-player settings dynamically via `configFacade.get()`.
 - **Track Far Players:** ExtendedHorizons natively syncs far players. You can read the `trackedFarPlayers()` from a `PlayerSession` to see exactly which entities are being simulated locally.
-
----
-## Stats
-
-[![Servers & Players](https://faststats.dev/embed/default:fec66100-50ff-435f-b9ea-542e113a8312:servers-and-players.svg?w=960&h=340&theme=dark)](https://faststats.dev/project/extendedhorizons/minecraft-plugin)
 
 ---
 

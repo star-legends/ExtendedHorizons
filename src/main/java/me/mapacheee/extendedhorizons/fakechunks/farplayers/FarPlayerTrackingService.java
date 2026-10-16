@@ -1,5 +1,7 @@
 package me.mapacheee.extendedhorizons.fakechunks.farplayers;
 
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
 import com.google.inject.Inject;
 import com.thewinterframework.configurate.Container;
 import com.thewinterframework.service.annotation.Service;
@@ -14,8 +16,6 @@ import me.mapacheee.extendedhorizons.fakechunks.farplayers.model.FarPlayerSyncSt
 import me.mapacheee.extendedhorizons.fakechunks.netty.ChannelInjectionService;
 import me.mapacheee.extendedhorizons.fakechunks.session.PlayerSession;
 import me.mapacheee.extendedhorizons.fakechunks.util.ChunkKeyCodec;
-import me.mapacheee.lib.caffeine.cache.Cache;
-import me.mapacheee.lib.caffeine.cache.Caffeine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

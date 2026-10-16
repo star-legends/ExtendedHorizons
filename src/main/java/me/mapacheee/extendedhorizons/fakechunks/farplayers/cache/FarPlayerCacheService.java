@@ -1,5 +1,7 @@
 package me.mapacheee.extendedhorizons.fakechunks.farplayers.cache;
 
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
 import com.google.inject.Inject;
 import com.mojang.datafixers.util.Pair;
 import com.thewinterframework.configurate.Container;
@@ -8,8 +10,6 @@ import com.thewinterframework.service.annotation.lifecycle.OnDisable;
 import me.mapacheee.extendedhorizons.config.EhConfig;
 import me.mapacheee.extendedhorizons.fakechunks.farplayers.model.FarPlayerState;
 import me.mapacheee.extendedhorizons.fakechunks.util.ChunkKeyCodec;
-import me.mapacheee.lib.caffeine.cache.Cache;
-import me.mapacheee.lib.caffeine.cache.Caffeine;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
 
